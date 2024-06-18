@@ -6,7 +6,7 @@ const AddTodo = ({ addTodo, todos }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const totalTodos = todos;
-  const todosUrl = "http://localhost:9000/todos/";
+  const todosUrl = "//localhost:9000/todos/";
 
   //add Todo in db
   const handleSubmit = async (e) => {

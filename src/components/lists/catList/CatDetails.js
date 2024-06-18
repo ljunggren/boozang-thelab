@@ -17,7 +17,7 @@ const CatDetails = () => {
   });
 
   const { cat_id } = useParams();
-  const catsUrl = "http://localhost:9000/cats/";
+  const catsUrl = "//localhost:9000/cats/";
   const singleCatUrl = catsUrl + cat_id;
   const history = useHistory();
 
@@ -95,11 +95,7 @@ const CatDetails = () => {
         <section className="catshelter_section">
           <header className="single_cat_header">
             <h1>Cat details</h1>
-            <Link
-              to="/catshelter"
-              className=""
-              aria-label="Back to Cat shelter page"
-            >
+            <Link to="/catshelter" className="" aria-label="Back to Cat shelter page">
               <i className="fas fa-arrow-left" aria-hidden="true"></i>
               Back to Cat shelter
             </Link>
@@ -124,10 +120,7 @@ const CatDetails = () => {
                   </h2>
                 </div>
 
-                <button
-                  className="form_btn delete"
-                  onClick={() => handleDelete(singleCat.id)}
-                >
+                <button className="form_btn delete" onClick={() => handleDelete(singleCat.id)}>
                   Delete
                 </button>
               </header>
@@ -170,9 +163,7 @@ const CatDetails = () => {
               <section className="btn_section">
                 <div className="text-center">
                   {!isLoading && <button className="form_btn add">Save</button>}
-                  {isLoading && (
-                    <button className="form_btn adding">Saving...</button>
-                  )}
+                  {isLoading && <button className="form_btn adding">Saving...</button>}
                 </div>
                 <button className="form_btn cancel" onClick={handleCancel}>
                   Cancel

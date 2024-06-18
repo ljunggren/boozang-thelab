@@ -14,7 +14,7 @@ const UnsortedList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const todosUrl = "http://localhost:9000/todos";
+  const todosUrl = "//localhost:9000/todos";
 
   useEffect(() => {
     const getTodos = async () => {
@@ -34,7 +34,7 @@ const UnsortedList = () => {
   //delete Todo in db and Gui
   const handleDelete = async (id) => {
     //id= argument in handleDelete() from TodoList component
-    //fetch(`http://localhost:9000/todos/${id}`
+    //fetch(`//localhost:9000/todos/${id}`
     await deleteData(todosUrl, id);
     //setting Gui state
     setTodos(

@@ -7,25 +7,25 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install -g boozang
-      
+
       - run: npm install
-      - run: npm run server & npm start & npx wait-on http://localhost:3000
-      - run: curl http://localhost:3000
-      
+      - run: npm run server & npm start & npx wait-on //localhost:3000
+      - run: curl //localhost:3000
+
       - name: Run headless test with Boozang
         uses: GabrielBB/xvfb-action@v1
         with:
           working-directory: ./ #optional
           run: boozang --file="json/report" "http://staging-be.boozang.com/extension?id=6009e593b0700759eb43fb8c&docker=1#6009e593b0700759eb43fb8c/master/m35/t1/actions/run"
-    
+
       - run: npm install multiple-cucumber-html-reporter --save-dev && node reporter.js
         if: always()
-  
+
       - name: Deploy report page
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"

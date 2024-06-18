@@ -22,7 +22,7 @@ function FormFill() {
     email: "",
     password: "",
   });
-  const usersUrl = "http://localhost:9000/users/";
+  const usersUrl = "//localhost:9000/users/";
 
   const getUsers = async () => {
     const usersFromServer = await getData(usersUrl);
@@ -99,12 +99,7 @@ function FormFill() {
         <section className="form_section">
           <FormFillIntro />
           {error && <p className="error">{error}</p>}
-          <Form
-            formData={formData}
-            handleChange={handleChange}
-            saveMessage={saveMessage}
-            handleSubmit={handleSubmit}
-          />
+          <Form formData={formData} handleChange={handleChange} saveMessage={saveMessage} handleSubmit={handleSubmit} />
 
           {!printForm && (
             <button onClick={getUsers} className="form_btn orange">
@@ -121,13 +116,7 @@ function FormFill() {
               Hide users in db
             </button>
           )}
-          {users && (
-            <PrintForm
-              printForm={printForm}
-              users={users}
-              deleteUser={deleteUser}
-            />
-          )}
+          {users && <PrintForm printForm={printForm} users={users} deleteUser={deleteUser} />}
         </section>
       </div>
       <div className="col-12 col-md-6">
