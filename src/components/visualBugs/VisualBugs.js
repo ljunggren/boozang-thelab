@@ -7,9 +7,15 @@ import { VisualBugsTestInfo } from "../text/WhyLearn";
 const VisualBugs = () => {
   const [index, setIndex] = useState(0);
   const animals = ["zebra", "cheetah", "lion", "giraffe", "meerkat", "elephant", "leopard"];
+
   const images = animals.map((animal, i) => {
-    return <img src={require(`../../img/${animal}.jpg`).default} key={i} alt={animal} />;
+    const imgPath = {
+      name: animal,
+      image: require(`../../img/${animal}.jpg`),
+    };
+    return <img src={imgPath.image} key={i} alt={imgPath.name} />;
   });
+  //före
   const animalImg = images[index];
   const animalLabel = animals[index];
 
@@ -24,11 +30,14 @@ const VisualBugs = () => {
   useEffect(() => {
     // console.log("index: ", index);
   }, [index]);
+
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6 col-xl-5">
         <section className="visual_bugs_section">
           <VisualBugsIntro />
+
+          <div></div>
           <div className="apect_ratio_box">
             <div className="apect_ratio_inside">{animalImg}</div>
           </div>

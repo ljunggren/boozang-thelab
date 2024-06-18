@@ -17,7 +17,11 @@ const CatOrDog = () => {
 
   const generateImage = () => {
     let images = pets.map((pet, i) => {
-      return <img src={require(`../../img/${pet}.jpg`).default} key={i} alt={pet} />;
+      const imgPath = {
+        name: pet,
+        image: require(`../../img/${pet}.jpg`),
+      };
+      return <img src={imgPath.image} key={i} alt={imgPath.name} />;
     });
     //setRandImage(null);
     const randNumber = Math.floor(Math.random() * 2);

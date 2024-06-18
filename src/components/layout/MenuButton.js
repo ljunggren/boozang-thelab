@@ -5,7 +5,7 @@ const MenuButton = ({ toggleOpen, isBtnOpen }) => (
   // passed prop from Navbar but function is in App.js
   <div className="menu_btn">
     <button
-      className={isBtnOpen ? "veggie_burger veggie_burger_isOpen" : "veggie_burger"}
+      className={`veggie_burger ${isBtnOpen ? "veggie_burger_isOpen" : ""}`}
       aria-label="Menu"
       aria-expanded={isBtnOpen ? "true" : "false"}
       onClick={toggleOpen}

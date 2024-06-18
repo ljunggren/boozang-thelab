@@ -102,11 +102,25 @@ const Table = () => {
                 filteredAnimals.map((animal, index) => {
                   //slice(startPageIndex, startPageIndex + itemsPerPage);
 
+                  // const images = animals.map((animal, i) => {
+                  //   const imgPath = {
+                  //     name: animal,
+                  //     image: require(`../../img/${animal}.jpg`),
+                  //   };
+                  //   return <img src={imgPath.image} key={i} alt={imgPath.name} />;
+                  // });
+
+                  const imgPath = {
+                    name: animal.name,
+                    image: require(`../../img/tableImg/${animal.name}.jpg`),
+                  };
+
                   return index > startPageIndex && index < startPageIndex + itemsPerPage ? (
                     <tr key={index}>
                       <td>
                         {" "}
-                        <img src={require(`../../img/tableImg/${animal.name}.jpg`).default} alt={animal.name} />{" "}
+                        <img src={imgPath.image} alt={imgPath.name} />
+                        {/* <img src={require(`../../img/tableImg/${animal.name}.jpg`).default} alt={animal.name} />{" "} */}
                       </td>
                       <td>{animal.name}</td>
                       <td>{animal.species}</td>

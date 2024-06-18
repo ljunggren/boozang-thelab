@@ -2,19 +2,19 @@
   "todos": [
     {
       "title": "Play with Filip",
-      "id": 2
+      "id": "2"
     },
     {
       "title": "Make some dinner",
-      "id": 4
+      "id": "4"
     },
     {
       "title": "Do the dishes",
-      "id": 5
+      "id": "5"
     },
     {
       "title": "Walk with cats",
-      "id": 6
+      "id": "6"
     }
   ],
   "cats": [
@@ -23,42 +23,42 @@
       "description": "Big kind cat. Black and white.",
       "inOrOutside": "outside",
       "foundHome": true,
-      "id": 8
+      "id": "8"
     },
     {
       "name": "Hugo",
       "description": "Stripes",
       "inOrOutside": "outside",
       "foundHome": true,
-      "id": 9
+      "id": "9"
     },
     {
       "name": "Trulsis",
       "description": "Black beauty. Funny cat.",
       "inOrOutside": "outside",
       "foundHome": true,
-      "id": 10
+      "id": "10"
     },
     {
       "name": "Theo",
       "description": "Big, fine cat",
       "inOrOutside": "outside",
       "foundHome": true,
-      "id": 11
+      "id": "11"
     },
     {
       "name": "Truls",
       "description": "Beautiful!!",
       "inOrOutside": "outside",
       "foundHome": true,
-      "id": 12
+      "id": "12"
     },
     {
       "name": "Penelope",
       "description": "Lovely",
       "inOrOutside": "inside",
       "foundHome": true,
-      "id": 13
+      "id": "13"
     }
   ],
   "users": [
@@ -67,28 +67,28 @@
       "lastname": "Ljunggren",
       "email": "filip@gmail.com",
       "password": "Jg5sHn@TaRAwhsi",
-      "id": 2
+      "id": "2"
     },
     {
       "firstname": "Truls",
       "lastname": "Ljunggren",
       "email": "truls@gmail.com",
       "password": "Jg5sHn@TaRAwhsi",
-      "id": 3
+      "id": "3"
     },
     {
       "firstname": "Lukas",
       "lastname": "Ljunggren",
       "email": "luki@gmail.com",
       "password": "Jg5sHn@TaRAwhsidfd",
-      "id": 5
+      "id": "5"
     },
     {
       "firstname": "Karin",
       "lastname": "Ljunggren",
       "email": "kaljunggren@gmail.com",
       "password": "145632",
-      "id": 6
+      "id": "6"
     }
   ]
 }

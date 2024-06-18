@@ -1,17 +1,21 @@
 //connector?
-export const getData = async (url) => {
+export const getData = async (url, filters) => {
   try {
+    let filterParams = "";
     //fetch() returns promise
-    const result = await fetch(url);
+    if (filters) {
+      filterParams = "?" + JSON.stringify(filters);
+    }
+    const result = await fetch(url + filterParams);
     //result men status ej ok
     if (!result.ok) {
       // console.log("result:", result);
-      throw Error("Fetch data error: " + result.statusText);
+      throw Error("Fetch data from server error: " + result.statusText);
     }
     //result.json(); returns promise
     const data = await result.json();
     return data;
-    //inget result ex hittar ej url
+    //alla fel
   } catch (err) {
     console.log("error:", err);
   }

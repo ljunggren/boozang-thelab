@@ -38,7 +38,15 @@ ul {
   margin: 0;
   padding: 0;
 }
+.table {
+  color: #212529;
+  margin-bottom: 1rem;
+  width: 100%;
+}
 
+table {
+  border-collapse: collapse;
+}
 //typgrafi
 h1 {
   margin-bottom: 0.8rem;
@@ -118,6 +126,9 @@ td {
 }
 
 //links
+a {
+  text-decoration: none;
+}
 a:not(.link_btn, .link, .cat_name_link) {
   position: relative;
   color: $linkColor;

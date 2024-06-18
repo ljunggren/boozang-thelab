@@ -125,12 +125,11 @@
               color: $linkColor;
               text-decoration: underline;
             }
-            &:active,
-            visited {
+            &.active,
+            :visited {
               color: $linkColor;
             }
             &.active {
-              color: $linkColor;
               text-decoration: underline;
             }
           }
