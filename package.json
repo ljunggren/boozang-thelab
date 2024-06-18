@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.2",
-    "gojs-react": "^1.0.10",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^5.0.1",
-    "react-test-renderer": "^17.0.2",
-    "sass": "^1.49.11",
-    "web-vitals": "^0.2.4"
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
+    "gojs-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "latest",
+    "react-test-renderer": "latest",
+    "sass": "latest",
+    "web-vitals": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,11 +41,11 @@
     ]
   },
   "devDependencies": {
-    "multiple-cucumber-html-reporter": "^1.18.0",
-    "react-error-overlay": "^6.0.9"
+    "multiple-cucumber-html-reporter": "latest",
+    "react-error-overlay": "latest"
   },
   "resolutions": {
     "//": "See https://github.com/facebook/create-react-app/issues/11773",
-    "react-error-overlay": "6.0.9"
+    "react-error-overlay": "latest"
   }
 }
