@@ -106,8 +106,15 @@ jobs:
         run: curl http://localhost:3000
 
       - name: Run Boozang E2E tests
+        if: ${{ secrets.BOOZANG_TEST_URL != '' }}
         run: |
           docker run --network host -v ${{ github.workspace }}/json:/var/boozang/json styrman/boozang-runner "${{ secrets.BOOZANG_TEST_URL }}"
+
+      - name: Skip Boozang tests (no URL configured)
+        if: ${{ secrets.BOOZANG_TEST_URL == '' }}
+        run: |
+          echo "BOOZANG_TEST_URL secret not configured - skipping Boozang E2E tests"
+          echo "To enable Boozang tests, add the BOOZANG_TEST_URL secret to your repository"
 
       - name: Generate test report
         if: always()
