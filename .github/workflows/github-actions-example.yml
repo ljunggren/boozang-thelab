@@ -8,17 +8,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install -g boozang
 
       - run: npm install
       - run: npm run server & npm start & npx wait-on http://localhost:3000
       - run: curl http://localhost:3000
 
       - name: Run headless test with Boozang
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          working-directory: ./ #optional
-          run: boozang --file="json/report" "https://staging-bh.boozang.com/extension?id=6009e593b0700759eb43fb8c&docker=1#6009e593b0700759eb43fb8c/master/m35/t1/actions/run"
+        run: |
+          docker run --network host -v ${{ github.workspace }}/json:/var/boozang/json styrman/boozang-runner "https://staging-bh.boozang.com/extension?token=476599f569bae30b24bfd3a7b6c450d2697a833bfce5889460cea7f8&env=0&key=1#697a833bfce5889460cea7f8/master/m1/t2/run"
 
       - run: npm install multiple-cucumber-html-reporter --save-dev && node reporter.js
         if: always()
