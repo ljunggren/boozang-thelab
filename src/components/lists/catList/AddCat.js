@@ -12,7 +12,7 @@ const AddCat = () => {
     inOrOutside: "",
   });
 
-  const catsUrl = "//localhost:9000/cats/";
+  const catsUrl = "/cats/";
   const history = useHistory();
 
   const handleChange = (e) => {

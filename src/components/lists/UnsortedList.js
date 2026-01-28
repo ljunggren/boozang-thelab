@@ -14,7 +14,7 @@ const UnsortedList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const todosUrl = "//localhost:9000/todos";
+  const todosUrl = "/todos";
 
   useEffect(() => {
     const getTodos = async () => {

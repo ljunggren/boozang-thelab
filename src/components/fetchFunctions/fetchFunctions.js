@@ -1,3 +1,9 @@
+//helper to construct URL without credentials
+const getApiUrl = (path) => {
+  const loc = window.location;
+  return `${loc.protocol}//${loc.host}${path}`;
+};
+
 //connector?
 export const getData = async (url, filters) => {
   try {
@@ -6,7 +12,8 @@ export const getData = async (url, filters) => {
     if (filters) {
       filterParams = "?" + JSON.stringify(filters);
     }
-    const result = await fetch(url + filterParams);
+    const fullUrl = getApiUrl(url + filterParams);
+    const result = await fetch(fullUrl);
     //result men status ej ok
     if (!result.ok) {
       // console.log("result:", result);
@@ -23,7 +30,8 @@ export const getData = async (url, filters) => {
 
 export const addData = async (url, item) => {
   try {
-    const result = await fetch(url, {
+    const fullUrl = getApiUrl(url);
+    const result = await fetch(fullUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       //what I post as json-format
@@ -41,7 +49,8 @@ export const addData = async (url, item) => {
 
 export const updateData = async (url, updItem) => {
   try {
-    const result = await fetch(url, {
+    const fullUrl = getApiUrl(url);
+    const result = await fetch(fullUrl, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       //what I post as json-format
@@ -60,7 +69,8 @@ export const updateData = async (url, updItem) => {
 export const deleteData = async (url, id) => {
   url = url.endsWith("/") ? url : url + "/";
   try {
-    const result = await fetch(url + id, {
+    const fullUrl = getApiUrl(url + id);
+    const result = await fetch(fullUrl, {
       method: "DELETE",
     });
     if (!result.ok) {

@@ -22,7 +22,7 @@ function FormFill() {
     email: "",
     password: "",
   });
-  const usersUrl = "//localhost:9000/users/";
+  const usersUrl = "/users/";
 
   const getUsers = async () => {
     const usersFromServer = await getData(usersUrl);
