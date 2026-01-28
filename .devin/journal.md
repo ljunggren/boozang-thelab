@@ -20,7 +20,7 @@ This journal tracks all updates, learnings, and best practices discovered during
 
 **Outcome:** Successfully set up comprehensive agentic documentation infrastructure with defined commands and automation hooks.
 
-**PR:** (pending)
+**PR:** [#3 - Add .devin directory with agentic documentation](https://github.com/ljunggren/boozang-thelab/pull/3)
 
 ---
 
