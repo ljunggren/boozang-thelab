@@ -9,8 +9,8 @@ jobs:
       - run: npm install -g boozang
 
       - run: npm install
-      - run: npm run server & npm start & npx wait-on //localhost:3000
-      - run: curl //localhost:3000
+      - run: npm run server & npm start & npx wait-on http://localhost:3000
+      - run: curl http://localhost:3000
 
       - name: Run headless test with Boozang
         uses: GabrielBB/xvfb-action@v1
