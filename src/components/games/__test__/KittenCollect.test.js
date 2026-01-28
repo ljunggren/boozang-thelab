@@ -1,6 +1,6 @@
 import KittenCollect from "../KittenCollect";
 import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 
 test("Control KittenCollect heading", () => {
   render(<KittenCollect />);
@@ -11,7 +11,7 @@ test("Control KittenCollect heading", () => {
 
 test("Check message text when click on start", () => {
   render(<KittenCollect />);
-  const btn = screen.getByDisplayValue("Start Game");
+  const btn = screen.getByRole("button", { name: /Start Game/i });
   const message = screen.getByTestId("message");
   fireEvent.click(btn);
 
