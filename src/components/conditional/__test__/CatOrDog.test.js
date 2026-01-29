@@ -1,6 +1,6 @@
 import CatOrDog from "../CatOrDog";
 import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 
 test("control CatOrDog heading", () => {
   render(<CatOrDog />);
@@ -8,11 +8,11 @@ test("control CatOrDog heading", () => {
   expect(heading).toBeInTheDocument();
 });
 
-//getByDisplayValue
+//getByRole
 test("Check that output_section gets class show on click on btn", () => {
   render(<CatOrDog />);
   //screen.debug();
-  const btn = screen.getByDisplayValue("Generate Image");
+  const btn = screen.getByRole("button", { name: /Generate Image/i });
   const output = screen.getByTestId("output");
   fireEvent.click(btn);
 

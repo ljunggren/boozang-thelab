@@ -1,23 +1,23 @@
 import WaitGame from "../WaitGame";
 import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 
-//getByDisplayValue
+//getByRole
 test("render stopbtn when click on startBtn", () => {
   render(<WaitGame />);
-  const startBtn = screen.getByDisplayValue("Start Game");
+  const startBtn = screen.getByRole("button", { name: /Start Game/i });
 
   fireEvent.click(startBtn);
-  const stopBtn = screen.getByDisplayValue("Start Game");
+  const stopBtn = screen.getByRole("button", { name: /End Game/i });
   expect(stopBtn).toBeInTheDocument();
 });
 
 test("correct class on result message component when click on stop", () => {
   render(<WaitGame />);
-  const startBtn = screen.getByDisplayValue("Start Game");
+  const startBtn = screen.getByRole("button", { name: /Start Game/i });
   fireEvent.click(startBtn);
 
-  const stopBtn = screen.getByDisplayValue("End Game");
+  const stopBtn = screen.getByRole("button", { name: /End Game/i });
   fireEvent.click(stopBtn);
 
   const resultMessage = screen.getByTestId("result");
