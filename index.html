@@ -1040,6 +1040,11 @@ body.darkmode .navbar-text {
         </div>
 
         <div class="x_content">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <input id="features-search-box" type="text" class="form-control" placeholder="Search features..." autocomplete="off">
+                </div>
+            </div>
             <div class="table-responsive">
                 <table id="features-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
                        width="100%">
@@ -1076,7 +1081,7 @@ body.darkmode .navbar-text {
                     
                     <tr>
                         <td>
-                            <a href="features/68bb297a-1ab1-427d-9ce1-7d8b40ba2837-m35.html">[m35] Form fill tests</a>
+                            <a href="features/156e1b80-abd8-4135-b37b-87abb8d6678d-m35.html">[m35] Form fill tests</a>
                         </td>
                         <td class="text-center">
                             
@@ -1205,10 +1210,31 @@ body.darkmode .navbar-text {
         <!-- Custom -->
         <script>
             $(document).ready(function () {
-                $('#features-table').dataTable({
+                // Get search param from querystring
+                function getQueryParam(name) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name) || '';
+                }
+
+                var searchValue = getQueryParam('search');
+                if (searchValue) {
+                    $('#features-search-box').val(searchValue);
+                }
+
+                var table = $('#features-table').DataTable({
                     "order": [[0, "asc"]],
                     "lengthMenu": [[50, 100, 150, -1], [50, 100, 150, "All"]],
                     "stateSave": true
+                });
+
+                // If search param exists, filter table
+                if (searchValue) {
+                    table.search(searchValue).draw();
+                }
+
+                // Live search as user types
+                $('#features-search-box').on('input', function() {
+                    table.search(this.value).draw();
                 });
 
                 var featureOptions = {
