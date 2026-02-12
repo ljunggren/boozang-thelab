@@ -14,6 +14,7 @@ This directory contains agentic documentation for AI-assisted development on the
 | **guidelines.md** | Repository-specific best practices and workflow |
 | **commands.md** | Defined commands: `start session`, `end session`, `journal` |
 | **hooks.md** | Automation behaviors for PRs, CI/CD, and session lifecycle |
+| **multi-agent-workflow.md** | **EXPERIMENTAL** — Devin + Claude Code collaboration workflow and task list |
 
 ## Quick Start for AI Agents
 
@@ -32,6 +33,14 @@ This documentation serves to:
 3. **Maintain context** - Provide AI assistants with relevant project-specific knowledge
 4. **Track progress** - Keep a record of what has been done and why
 5. **Automate documentation** - PRs automatically update the journal
+
+## Multi-Agent Workflow (Experimental)
+
+This repo is currently running an experiment with two AI agents:
+- **Devin** handles autonomous development (branches, code, PRs)
+- **Claude Code** reviews and merges Devin's PRs
+
+See `multi-agent-workflow.md` for the full plan, task list, and review protocol.
 
 ## For Human Collaborators
 

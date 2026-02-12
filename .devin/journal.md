@@ -24,6 +24,29 @@ This journal tracks all updates, learnings, and best practices discovered during
 
 ---
 
+### 2026-02-10 - Session Start (Claude Code)
+
+**Objective:** Initial session with Claude Code. Set up CLAUDE.md to integrate with .devin workflow.
+
+**Actions Taken:**
+- Read all `.devin/` files for project context
+- Created `CLAUDE.md` instructing Claude Code to read `.devin/` files at session start
+- Reviewed past session (2026-01-28: initial .devin setup)
+
+**Actions Taken (continued):**
+- Scanned full git history and PRs to recap all Devin work (PRs #1–#6)
+- Created `../bz-business/devin-case-study.md` — case study of Devin's CI/CD pipeline work
+- Designed multi-agent workflow experiment: Devin (autonomous dev) + Claude Code (reviewer/merge master)
+- Created `.devin/multi-agent-workflow.md` with 5 task specs for Devin, review protocol for Claude Code
+- Updated `.devin/README.md` to reference the workflow
+- Updated `CLAUDE.md` with reviewer role and escalation criteria
+
+**Outcome:** Established experimental multi-agent workflow. Ready for Devin to pick up tasks.
+
+**Status:** Completed
+
+---
+
 ## Learnings & Best Practices
 
 ### Repository-Specific Knowledge
