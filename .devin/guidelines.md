@@ -10,10 +10,14 @@ Boozang TheLab is an interactive educational web application for teaching test a
 
 ### Starting a New Task
 
-1. Review the journal for recent context and learnings
-2. Create a feature branch: `git checkout -b devin/{timestamp}-{description}`
-3. Understand the existing code patterns before making changes
-4. Run `npm run build` to verify the codebase compiles
+1. **Fix branch tracking if needed:** The default branch is `main` (not `master`). If `git pull` fails with "no such ref", run:
+   ```bash
+   git branch -m master main && git fetch origin && git branch -u origin/main main && git remote set-head origin -a
+   ```
+2. Review the journal for recent context and learnings
+3. Create a feature branch from `main`: `git checkout -b devin/{timestamp}-{description}`
+4. Understand the existing code patterns before making changes
+5. Run `npm run build` to verify the codebase compiles
 
 ### Making Changes
 
