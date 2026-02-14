@@ -90,7 +90,8 @@ Human (direction + oversight)
 **Branch:** `devin/{timestamp}-workflow-case-study`
 **Scope:** After tasks 1–4 are complete, write a section in the case study documenting how the Devin + Claude Code workflow performed. Include: what worked, what didn't, time/iteration metrics, and recommendations.
 **Acceptance:** Honest assessment with specific examples from the completed tasks.
-**Estimated files:** `../bz-business/devin-case-study.md`
+**Estimated files:** `.devin/workflow-case-study.md`
+**Status:** Completed (PR pending). See [workflow-case-study.md](workflow-case-study.md).
 
 ---
 
@@ -116,11 +117,13 @@ When reviewing a Devin PR:
 
 ## Success Criteria for This Experiment
 
-- [ ] At least 3 of 5 tasks completed and merged via the workflow
-- [ ] Claude Code catches at least one issue in review that Devin missed
-- [ ] No broken merges to main
-- [ ] Workflow overhead is lower than direct human review
-- [ ] Enough material generated for a compelling case study section
+- [ ] At least 3 of 5 tasks completed and merged via the workflow — **Not met** (1 of 5)
+- [ ] Claude Code catches at least one issue in review that Devin missed — **Partially met**
+- [x] No broken merges to main — **Met**
+- [ ] Workflow overhead is lower than direct human review — **Not met**
+- [ ] Enough material generated for a compelling case study section — **Partially met**
+
+See [workflow-case-study.md](workflow-case-study.md) for the full assessment.
 
 ---
 
