@@ -68,7 +68,34 @@ This journal tracks all updates, learnings, and best practices discovered during
 
 **Outcome:** Case study completed with metrics, success criteria evaluation, and 6 recommendations.
 
-**PR:** Pending
+**PR:** #17
+
+---
+
+### 2026-02-14 - Multi-Agent Pipeline E2E (Claude Code)
+
+**Objective:** Build automated pipeline to trigger Devin from GitHub issues, poll for PRs, and auto-merge.
+
+**Actions Taken:**
+- Tried native `@devin-ai-integration` GitHub mentions — Devin's app doesn't install webhooks (their bug)
+- Built API-based workflow: `scripts/trigger-devin.sh` creates Devin sessions via REST API
+- Built `scripts/poll-devin-pr.sh` — polls for Devin PRs, auto-merges when CI passes, sends macOS notifications
+- Added `.env` / `.env.template` for `DEVIN_API_KEY`
+- Removed obsolete `github-actions-example.yml` (ran on every push, Node 10, broken)
+- Fixed branch tracking `master` → `main` in Devin guidelines
+- Triggered all 4 remaining issues (#7, #8, #9, #11) in parallel
+- Polling script auto-merged 3/4 PRs; 4th needed rebase then also auto-merged
+
+**Outcome:** 5/5 Devin tasks completed and merged. Fully automated loop: issue → trigger → PR → CI → auto-merge.
+
+**Learnings:**
+- Devin's GitHub App webhook integration is broken — use API as primary trigger
+- Devin branches from its last known state; if `main` changes (e.g. workflow removal), Devin PRs need rebase
+- `@devin-ai-integration` comments DO work for in-session communication (rebase requests etc.) — likely polling-based
+- Always check PR CI checks before reviewing code
+- Old/obsolete workflow files on feature branches cause phantom CI failures
+
+**PRs merged:** #12, #13, #14, #15, #16, #17, #18
 
 ---
 
