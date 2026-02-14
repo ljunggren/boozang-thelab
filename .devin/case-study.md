@@ -148,4 +148,4 @@ flowchart LR
 
 ---
 
-*Generated from PR data in [ljunggren/boozang-thelab](https://github.com/ljunggren/boozang-thelab). Part of the [multi-agent workflow experiment](.devin/multi-agent-workflow.md).*
+*Generated from PR data in [ljunggren/boozang-thelab](https://github.com/ljunggren/boozang-thelab). Part of the [multi-agent workflow experiment](multi-agent-workflow.md).*
