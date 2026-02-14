@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --colors",
     "eject": "react-scripts eject",
-    "server": "json-server --watch data/db.json --port 9000"
+    "server": "json-server --watch data/db.json --port 9000",
+    "test:e2e": "npx playwright test"
   },
   "eslintConfig": {
     "extends": [
