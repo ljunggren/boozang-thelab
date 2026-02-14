@@ -68,12 +68,34 @@ function FeatureComponent() {
 - Test reports are deployed to GitHub Pages
 - Wait for CI checks to pass before merging
 
+## Triggering Devin Sessions
+
+Devin's native GitHub webhook integration is unreliable. Use the API instead:
+
+```bash
+# Trigger from a GitHub issue
+./scripts/trigger-devin.sh <issue-number>
+```
+
+This creates a Devin session via the API and comments the session link on the issue. Requires `DEVIN_API_KEY` in `.env`.
+
+### Auto-merge Polling
+
+```bash
+# Poll for Devin PRs and auto-merge when CI passes
+./scripts/poll-devin-pr.sh [interval] [auto-merge]
+```
+
+### Rebasing After Main Changes
+
+If your branch was created before workflow or config changes on `main`, CI may fail with stale workflow files. Rebase on `main` and force-push to pick up the latest changes.
+
 ## Common Pitfalls to Avoid
 
 1. **Don't modify generated files directly** - Use package managers
 2. **Don't hardcode localhost URLs** - Use the existing URL patterns that get replaced during deployment
 3. **Don't skip the build check** - Always run `npm run build` before committing
-4. **Don't force push** - Use merge commits instead of rebasing
+4. **Don't force push to main** - Use merge commits instead of rebasing (force-push to feature branches is OK for rebasing)
 
 ## File Organization
 
