@@ -24,3 +24,7 @@ yarn-error.log*
 
 *.pid
 *.log
+
+# Agent config (local only)
+.agent/
+.readonly/

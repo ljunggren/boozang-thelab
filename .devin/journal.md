@@ -67,7 +67,7 @@ This journal tracks all updates, learnings, and best practices discovered during
 ### General Best Practices
 
 **Before Making Changes:**
-- Always create a new branch from master
+- Always create a new branch from main
 - Use branch naming convention: `devin/{timestamp}-{description}`
 - Review existing code patterns before implementing new features
 

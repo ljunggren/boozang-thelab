@@ -118,7 +118,7 @@ When reviewing a Devin PR:
 
 - [ ] At least 3 of 5 tasks completed and merged via the workflow
 - [ ] Claude Code catches at least one issue in review that Devin missed
-- [ ] No broken merges to master
+- [ ] No broken merges to main
 - [ ] Workflow overhead is lower than direct human review
 - [ ] Enough material generated for a compelling case study section
 
