@@ -41,7 +41,6 @@ const CatShelter = () => {
 
     //PUT request...send update
     const catFromServer = await updateData(singleCatUrl, updatedCat);
-    console.log("catFromServer", catFromServer);
 
     //set Gui state
     setCats(

@@ -77,7 +77,6 @@ const ScrambleItems = () => {
     setClickedBtn("");
     //avoid resetting value-strings
     let tmpId = btnTwoAttributes.myId;
-    // console.log("tmpId: ", tmpId);
     setBtnTwoAttributes({
       ...btnTwoAttributes,
       myId: btnOneAttributes.myId,
@@ -121,14 +120,12 @@ const ScrambleItems = () => {
     const [y1, x1] = randomPosition();
     let [y2, x2] = [0, 0];
 
-    //ge knapp2 ny pos tills den är lillräckligt långt ifrån sin kompis(endast 9 ggr)
+    //give button2 a new position until it is far enough from its companion (only 9 times)
     let i = 0;
-    //console.log("hello");
     do {
       [y2, x2] = randomPosition();
       i++;
-      // console.log("pos: ", x1, y1, x2, y2);
-      //slå om tärningen om avståndet är mindre än...
+      //re-roll if the distance is less than...
     } while (i < 10 && Math.abs(y2 - y1) < 40 && Math.abs(x2 - x1) < 70);
 
     const style1 = {
@@ -158,9 +155,6 @@ const ScrambleItems = () => {
     }, 100);
     // eslint-disable-next-line
   }, []);
-  useEffect(() => {
-    //  console.log("clickedBtn", clickedBtn);
-  }, [clickedBtn]);
 
   return (
     <div className="row justify-content-between">

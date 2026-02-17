@@ -24,7 +24,6 @@ const CatDetails = () => {
   useEffect(() => {
     const getSingleCat = async () => {
       const catFromServer = await getData(singleCatUrl);
-      // console.log("catFromServer", catFromServer);
       //setting Gui state
       setSingleCat(catFromServer);
       setIsLoading(false);
@@ -44,7 +43,6 @@ const CatDetails = () => {
   }, [singleCatUrl]);
 
   const handleChange = (e) => {
-    // console.log("hej", e.target.value);
     const { name, value } = e.target;
     setNewValues({
       ...newValues,
@@ -63,7 +61,6 @@ const CatDetails = () => {
     };
     //PUT request...send update
     const updatedCatFromServer = await updateData(singleCatUrl, updatedCat);
-    // console.log("cupdatedCatFromServer", cupdatedCatFromServer);
 
     if (updatedCatFromServer) {
       //redirecting so do not have to set gui state
@@ -86,9 +83,6 @@ const CatDetails = () => {
   const handleCancel = () => {
     history.push("/catshelter");
   };
-  useEffect(() => {
-    //  console.log("newValues.inOrOutside:", newValues.inOrOutside);
-  }, [newValues]);
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6">
