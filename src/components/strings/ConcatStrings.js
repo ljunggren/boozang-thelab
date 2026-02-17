@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./strings.scss";
 import { ConcatStringsIntro } from "../text/Intros";
 import { ConcatStringTestInfo } from "../text/WhyLearn";
@@ -50,13 +50,6 @@ const ConcatStrings = () => {
       });
     }
   };
-  useEffect(() => {
-    //console.log("concatStr: ", concatStr);
-  }, [concatStr]);
-
-  useEffect(() => {
-    //console.log("messageData", messageData);
-  }, [messageData]);
 
   return (
     <div className="row justify-content-between">

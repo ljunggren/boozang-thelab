@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const AddTodo = ({ addTodo }) => {
   const [title, setTitle] = useState("");
@@ -10,9 +10,6 @@ const AddTodo = ({ addTodo }) => {
     addTodo(title);
     setTitle("");
   };
-  useEffect(() => {
-    // console.log("title:", title);
-  }, [title]);
 
   return (
     <div>

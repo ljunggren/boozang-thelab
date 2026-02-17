@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addData } from "../fetchFunctions/fetchFunctions";
 
 const AddTodo = ({ addTodo, todos }) => {
@@ -23,10 +23,6 @@ const AddTodo = ({ addTodo, todos }) => {
     }
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    //console.log("totalTodos:", totalTodos);
-  }, [totalTodos]);
 
   return (
     <div>

@@ -53,10 +53,6 @@ const UnsortedList = () => {
     setTodos(todosNew);
   };
 
-  useEffect(() => {
-    // console.log("todos:", todos);
-  }, [todos]);
-
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6 col-xl-5">

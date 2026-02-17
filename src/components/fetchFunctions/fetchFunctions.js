@@ -7,17 +7,15 @@ export const getData = async (url, filters) => {
       filterParams = "?" + JSON.stringify(filters);
     }
     const result = await fetch(url + filterParams);
-    //result men status ej ok
+    //result with non-ok status
     if (!result.ok) {
-      // console.log("result:", result);
       throw Error("Fetch data from server error: " + result.statusText);
     }
     //result.json(); returns promise
     const data = await result.json();
     return data;
-    //alla fel
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
@@ -35,7 +33,7 @@ export const addData = async (url, item) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
@@ -53,7 +51,7 @@ export const updateData = async (url, updItem) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
@@ -69,6 +67,6 @@ export const deleteData = async (url, id) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };

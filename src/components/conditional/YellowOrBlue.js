@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./conditional.scss";
 import { YellowOrBlueIntro } from "../text/Intros";
 import { YellowOrBlueTestInfo } from "../text/WhyLearn";
@@ -44,12 +44,6 @@ const YellowOrBlue = () => {
       }
     }
   };
-  useEffect(() => {
-    // console.log("randColor", randColor);
-  }, [randColor]);
-  useEffect(() => {
-    // console.log("messageData", messageData);
-  }, [messageData]);
 
   return (
     <div className="row justify-content-between">
