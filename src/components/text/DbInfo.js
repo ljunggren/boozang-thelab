@@ -1,6 +1,6 @@
-const usersUrl = "//localhost:9000/users/";
-const catsUrl = "//localhost:9000/cats";
-const todosUrl = "//localhost:9000/todos/";
+const usersUrl = "/users/";
+const catsUrl = "/cats";
+const todosUrl = "/todos/";
 
 export const UsersDb = () => {
   return (

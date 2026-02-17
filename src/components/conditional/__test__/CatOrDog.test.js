@@ -8,11 +8,11 @@ test("control CatOrDog heading", () => {
   expect(heading).toBeInTheDocument();
 });
 
-//getByDisplayValue
+//getByRole
 test("Check that output_section gets class show on click on btn", () => {
   render(<CatOrDog />);
   //screen.debug();
-  const btn = screen.getByRole("button", { name: "Generate Image" });
+  const btn = screen.getByRole("button", { name: /Generate Image/i });
   const output = screen.getByTestId("output");
   fireEvent.click(btn);
 

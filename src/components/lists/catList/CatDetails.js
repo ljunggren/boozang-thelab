@@ -17,7 +17,7 @@ const CatDetails = () => {
   });
 
   const { cat_id } = useParams();
-  const catsUrl = "//localhost:9000/cats/";
+  const catsUrl = "/cats/";
   const singleCatUrl = catsUrl + cat_id;
   const history = useHistory();
 

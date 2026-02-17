@@ -11,7 +11,7 @@ test("Control KittenCollect heading", () => {
 
 test("Check message text when click on start", () => {
   render(<KittenCollect />);
-  const btn = screen.getByRole("button", { name: "Start Game" });
+  const btn = screen.getByRole("button", { name: /Start Game/i });
   const message = screen.getByTestId("message");
   fireEvent.click(btn);
 

@@ -11,7 +11,7 @@ test("Control ConcatStrings heading", () => {
 
 test("Check that output_section gets class show on click on Generate-btn", () => {
   render(<ConcatStrings />);
-  const btn = screen.getByRole("button", { name: "Generate strings" });
+  const btn = screen.getByRole("button", { name: /Generate strings/i });
   const output = screen.getByTestId("output");
   fireEvent.click(btn);
 
@@ -20,7 +20,7 @@ test("Check that output_section gets class show on click on Generate-btn", () =>
 
 test("Check that result_wrapper gets class show on click on submit-btn", () => {
   render(<ConcatStrings />);
-  const btn = screen.getByRole("button", { name: "Submit string" });
+  const btn = screen.getByRole("button", { name: /submit/i });
   const result = screen.getByTestId("result");
   fireEvent.click(btn);
 
