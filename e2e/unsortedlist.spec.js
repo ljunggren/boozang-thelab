@@ -66,8 +66,6 @@ test.describe('UnsortedList', () => {
       await page.waitForTimeout(300);
     }
 
-    const lastTodoBefore = await page.locator('[data-testid="todo"]').last().textContent();
-
     let insertedAtEnd = 0;
     const attempts = 5;
     for (let i = 0; i < attempts; i++) {
