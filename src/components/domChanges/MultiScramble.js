@@ -12,26 +12,26 @@ const MultiScramble = () => {
       <div className="col-12 col-md-6 col-xl-5">
         <section className="scramble_section">
           <MultiScrambleIntro />
-          <form className="list_form">
+          <form className="list_form" data-testid="multiscramble-form">
             <label htmlFor="">Change wording for Add:</label>
             <br />
-            <input type="text" required value={contentAdd} onChange={(e) => setContentAdd(e.target.value)} />
+            <input type="text" required value={contentAdd} data-testid="add-input" onChange={(e) => setContentAdd(e.target.value)} />
             <label htmlFor="">Change wording for Delete:</label>
             <br />
-            <input type="text" required value={contentDelete} onChange={(e) => setContentDelete(e.target.value)} />
+            <input type="text" required value={contentDelete} data-testid="delete-input" onChange={(e) => setContentDelete(e.target.value)} />
           </form>
 
-          <div className="multiscramble_btn_section">
+          <div className="multiscramble_btn_section" data-testid="btn-section">
             <div className="row justify-content-between">
               <div className="col">
-                <input type="button" value={`${contentAdd} Koala`} className="form_btn add blue" />
-                <input type="button" value={`${contentAdd} Kangaroo`} className="form_btn add purple" />
-                <input type="button" value={`${contentAdd} Dolphin`} className="form_btn add pink" />
+                <input type="button" value={`${contentAdd} Koala`} className="form_btn add blue" data-testid="add-koala" />
+                <input type="button" value={`${contentAdd} Kangaroo`} className="form_btn add purple" data-testid="add-kangaroo" />
+                <input type="button" value={`${contentAdd} Dolphin`} className="form_btn add pink" data-testid="add-dolphin" />
               </div>
               <div className="col">
-                <input type="button" value={`${contentDelete} Koala`} className="form_btn add blue" />
-                <input type="button" value={`${contentDelete} Kangaroo`} className="form_btn add purple" />
-                <input type="button" value={`${contentDelete} Dolphin`} className="form_btn add pink" />
+                <input type="button" value={`${contentDelete} Koala`} className="form_btn add blue" data-testid="delete-koala" />
+                <input type="button" value={`${contentDelete} Kangaroo`} className="form_btn add purple" data-testid="delete-kangaroo" />
+                <input type="button" value={`${contentDelete} Dolphin`} className="form_btn add pink" data-testid="delete-dolphin" />
               </div>
             </div>
           </div>
