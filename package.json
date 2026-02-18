@@ -20,6 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --colors",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch data/db.json --port 9000",
     "test:e2e": "npx playwright test"
