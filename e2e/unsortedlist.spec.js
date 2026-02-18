@@ -57,4 +57,60 @@ test.describe('UnsortedList', () => {
 
     await expect(page.locator('.error')).toContainText('Your schedule is full!');
   });
+
+  test('should insert new todo at a non-sequential position', async ({ page }) => {
+    await expect(page.locator('.loading')).not.toBeVisible({ timeout: 10000 });
+
+    while (await page.locator('[data-testid="todo"]').count() >= 5) {
+      await page.locator('[data-testid="todo"]').first().locator('button[title="delete"]').click();
+      await page.waitForTimeout(300);
+    }
+
+    const lastTodoBefore = await page.locator('[data-testid="todo"]').last().textContent();
+
+    let insertedAtEnd = 0;
+    const attempts = 5;
+    for (let i = 0; i < attempts; i++) {
+      while (await page.locator('[data-testid="todo"]').count() >= 5) {
+        await page.locator('[data-testid="todo"]').first().locator('button[title="delete"]').click();
+        await page.waitForTimeout(300);
+      }
+      const todoText = `Random Position Todo ${i}`;
+      await page.fill('.list_form input[type="text"]', todoText);
+      await page.click('button.form_btn.add');
+      await page.waitForTimeout(300);
+      const lastTodoText = await page.locator('[data-testid="todo"]').last().textContent();
+      if (lastTodoText.includes(todoText)) {
+        insertedAtEnd++;
+      }
+    }
+
+    expect(insertedAtEnd).toBeLessThan(attempts);
+  });
+
+  test('should clear the input field after adding a todo', async ({ page }) => {
+    await expect(page.locator('.loading')).not.toBeVisible({ timeout: 10000 });
+
+    while (await page.locator('[data-testid="todo"]').count() >= 5) {
+      await page.locator('[data-testid="todo"]').first().locator('button[title="delete"]').click();
+      await page.waitForTimeout(300);
+    }
+
+    await page.fill('.list_form input[type="text"]', 'Clear Input Test');
+    await page.click('button.form_btn.add');
+    await page.waitForTimeout(300);
+
+    await expect(page.locator('.list_form input[type="text"]')).toHaveValue('');
+  });
+
+  test('should display each todo with a delete button', async ({ page }) => {
+    await expect(page.locator('.loading')).not.toBeVisible({ timeout: 10000 });
+
+    const todos = page.locator('[data-testid="todo"]');
+    const count = await todos.count();
+
+    for (let i = 0; i < count; i++) {
+      await expect(todos.nth(i).locator('button[title="delete"]')).toBeVisible();
+    }
+  });
 });
