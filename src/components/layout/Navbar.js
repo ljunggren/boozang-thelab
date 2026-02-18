@@ -72,6 +72,11 @@ const Navbar = ({ toggleOpen, isBtnOpen }) => (
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink to="/unsortedList" className="link" onClick={toggleOpen}>
+                    Unsorted List
+                  </NavLink>
+                </li>
+                <li>
                   <NavLink to="/formFill" className="link" onClick={toggleOpen}>
                     Form Fill
                   </NavLink>
@@ -105,6 +110,11 @@ const Navbar = ({ toggleOpen, isBtnOpen }) => (
                 <li>
                   <NavLink to="/scramble" className="link" onClick={toggleOpen}>
                     Scramble items
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/multiScramble" className="link" onClick={toggleOpen}>
+                    Multi Scramble
                   </NavLink>
                 </li>
               </ul>

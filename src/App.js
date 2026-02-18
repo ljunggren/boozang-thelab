@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import Introduction from "./components/Introduction";
 import Overview from "./components/Overview";
 import SortedList from "./components/lists/SortedList";
-//import UnsortedList from "./components/lists/UnsortedList";
+import UnsortedList from "./components/lists/UnsortedList";
 import CatShelter from "./components/lists/catList/CatShelter";
 import CatDetails from "./components/lists/catList/CatDetails";
 import AddCat from "./components/lists/catList/AddCat";
@@ -21,7 +21,7 @@ import VisualBugs from "./components/visualBugs/VisualBugs";
 import YellowOrBlue from "./components/conditional/YellowOrBlue";
 import CatOrDog from "./components/conditional/CatOrDog";
 import ScrambleItems from "./components/domChanges/ScrambleItems";
-//import MultiScramble from "./components/domChanges/MultiScramble";
+import MultiScramble from "./components/domChanges/MultiScramble";
 import ConcatStrings from "./components/strings/ConcatStrings";
 import KittenCollect from "./components/games/KittenCollect";
 import CanvasGame from "./components/games/CanvasGame.js";
@@ -69,9 +69,9 @@ function App() {
               <Route path="/sortedList">
                 <SortedList />
               </Route>
-              {/* <Route path="/unsortedList">
+              <Route path="/unsortedList">
                 <UnsortedList />
-              </Route> */}
+              </Route>
               <Route path="/catshelter">
                 <CatShelter />
               </Route>
@@ -105,9 +105,9 @@ function App() {
               <Route path="/scramble">
                 <ScrambleItems />
               </Route>
-              {/* <Route path="/multiScramble">
+              <Route path="/multiScramble">
                 <MultiScramble />
-              </Route> */}
+              </Route>
               <Route path="/concatStrings">
                 <ConcatStrings />
               </Route>

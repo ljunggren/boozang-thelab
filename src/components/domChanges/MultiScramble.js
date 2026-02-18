@@ -26,12 +26,12 @@ const MultiScramble = () => {
               <div className="col">
                 <input type="button" value={`${contentAdd} Koala`} className="form_btn add blue" />
                 <input type="button" value={`${contentAdd} Kangaroo`} className="form_btn add purple" />
-                <input type="button" value={`${contentAdd} Dolpin`} className="form_btn add pink" />
+                <input type="button" value={`${contentAdd} Dolphin`} className="form_btn add pink" />
               </div>
               <div className="col">
                 <input type="button" value={`${contentDelete} Koala`} className="form_btn add blue" />
                 <input type="button" value={`${contentDelete} Kangaroo`} className="form_btn add purple" />
-                <input type="button" value={`${contentDelete} Dolpin`} className="form_btn add pink" />
+                <input type="button" value={`${contentDelete} Dolphin`} className="form_btn add pink" />
               </div>
             </div>
           </div>
