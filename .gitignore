@@ -29,3 +29,6 @@ yarn-error.log*
 # Agent config (local only)
 .agent/
 .readonly/
+
+# Audit temp config
+.audit-playwright.config.js
