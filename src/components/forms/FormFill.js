@@ -49,7 +49,7 @@ function FormFill() {
   const validate = (data) => {
     let status = 0;
     if (data.password.length < 6) {
-      return [status, "Password needs to be al least 6 characters."];
+      return [status, "Password needs to be at least 6 characters."];
     } else {
       return [1, "ok"];
     }

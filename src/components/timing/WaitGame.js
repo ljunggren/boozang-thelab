@@ -77,7 +77,7 @@ const WaitGame = () => {
             </button>
 
             {isRunning && (
-              <button className="form_btn delete" onClick={handleStop}>
+              <button className="form_btn delete" onClick={handleStop} data-testid="endBtn">
                 End Game
               </button>
             )}

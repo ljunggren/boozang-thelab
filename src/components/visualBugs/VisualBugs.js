@@ -38,8 +38,8 @@ const VisualBugs = () => {
           <VisualBugsIntro />
 
           <div></div>
-          <div className="apect_ratio_box">
-            <div className="apect_ratio_inside">{animalImg}</div>
+          <div className="aspect_ratio_box">
+            <div className="aspect_ratio_inside">{animalImg}</div>
           </div>
           <div className="label_wrapper">
             <p>{animalLabel}</p>
