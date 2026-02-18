@@ -1,0 +1,184 @@
+name: Test Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    name: "Stage 1: Unit Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test -- --watchAll=false --ci --coverage
+        env:
+          CI: true
+
+      - name: Upload unit test coverage
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unit-test-coverage
+          path: coverage/
+          retention-days: 7
+
+  playwright-tests:
+    name: "Stage 2: Playwright Tests"
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Start application
+        run: npm run server & npm start &
+        env:
+          CI: true
+
+      - name: Wait for application to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          CI: true
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  boozang-e2e-tests:
+    name: "Stage 3: Boozang E2E Tests"
+    needs: playwright-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start application
+        run: npm run server & npm start &
+        env:
+          CI: true
+
+      - name: Wait for application to be ready
+        run: npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Verify application is running
+        run: curl http://localhost:3000
+
+      - name: Run Boozang E2E tests
+        env:
+          BOOZANG_TEST_URL: ${{ secrets.BOOZANG_TEST_URL }}
+        run: |
+          if [ -n "$BOOZANG_TEST_URL" ]; then
+            echo "Running Boozang E2E tests..."
+            docker run --network host -v ${{ github.workspace }}/json:/var/boozang/json styrman/boozang-runner "$BOOZANG_TEST_URL"
+          else
+            echo "BOOZANG_TEST_URL secret not configured - skipping Boozang E2E tests"
+            echo "To enable Boozang tests, add the BOOZANG_TEST_URL secret to your repository"
+          fi
+
+      - name: Generate test report
+        if: always()
+        run: npm install multiple-cucumber-html-reporter --save-dev && node reporter.js
+
+      - name: Upload Boozang report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: boozang-report
+          path: public/
+          retention-days: 7
+
+  deploy-reports:
+    name: "Deploy Reports to GitHub Pages"
+    needs: [playwright-tests, boozang-e2e-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create publish directory
+        run: mkdir -p publish/playwright-report
+
+      - name: Download Playwright report
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-report
+          path: publish/playwright-report/
+
+      - name: Download Boozang report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: boozang-report
+          path: publish/
+
+      - name: Generate index page
+        run: |
+          cat > publish/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Test Reports - Boozang TheLab</title>
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; color: #333; }
+              h1 { border-bottom: 2px solid #5c4d9a; padding-bottom: 10px; }
+              a { display: block; padding: 12px 16px; margin: 8px 0; background: #f5f5f5; border-radius: 6px; color: #5c4d9a; text-decoration: none; font-weight: 500; }
+              a:hover { background: #ebe8f4; }
+            </style>
+          </head>
+          <body>
+            <h1>Test Reports</h1>
+            <a href="playwright-report/">Playwright HTML Report</a>
+            <a href="overview.html">Boozang Cucumber Report</a>
+          </body>
+          </html>
+          EOF
+
+      - name: Deploy reports to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"

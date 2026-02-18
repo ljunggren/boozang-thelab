@@ -29,7 +29,7 @@ const Table = () => {
       }
       return item;
     });
-    //sätter checked till true/false
+    //sets checked to true/false
     setMyFilter(updatedFilter);
   };
   const toggleLike = (animal) => {
@@ -57,10 +57,9 @@ const Table = () => {
     const temp = animals.filter((animal) => {
       return checkedItemSpecies.includes(animal.species);
     });
-    //sätter filtered animals
+    //sets filtered animals
     setFilteredAnimals(temp);
 
-    // console.log("filteredAnimals", filteredAnimals);
   }, [myFilter, animals]);
   return (
     <div className="row justify-content-between">

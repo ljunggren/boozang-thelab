@@ -45,6 +45,27 @@ Then use the dist folder you get.
 - Bootstrap 4
 - Semantic HTML5
 
+## Multi-Agent Development
+
+This repo uses a multi-agent workflow with two AI agents:
+
+- **Devin** — Autonomous engineer. Picks up GitHub issues, writes code, opens PRs.
+- **Claude Code** — Reviewer and merge master. Reviews PRs, runs checks, merges or requests changes.
+
+### Triggering Devin
+
+```bash
+# Trigger a Devin session from a GitHub issue
+./scripts/trigger-devin.sh <issue-number>
+
+# Poll for Devin PRs and auto-merge when CI passes
+./scripts/poll-devin-pr.sh [interval-seconds] [auto-merge: true|false]
+```
+
+Requires `DEVIN_API_KEY` in `.env` (see `.env.template`).
+
+See `.devin/multi-agent-workflow.md` for the full workflow and review protocol.
+
 ## Author
 
 - **Karin Ljunggren** - [karinlj](https://github.com/karinlj)

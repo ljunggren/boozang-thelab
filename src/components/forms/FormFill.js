@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./form.scss";
 import { FormFillVideos } from "../text/videos/VideoSections";
 import { FormFillIntro } from "../text/Intros";
@@ -22,7 +22,7 @@ function FormFill() {
     email: "",
     password: "",
   });
-  const usersUrl = "//localhost:9000/users/";
+  const usersUrl = "/users/";
 
   const getUsers = async () => {
     const usersFromServer = await getData(usersUrl);
@@ -45,7 +45,7 @@ function FormFill() {
     });
   };
 
-  //hantera fel i formuläret
+  //handle form errors
   const validate = (data) => {
     let status = 0;
     if (data.password.length < 6) {
@@ -61,14 +61,14 @@ function FormFill() {
       ...formData,
     };
     let [status, message] = validate(newUser);
-    //om det finns fel
+    //if there are errors
     if (status !== 1) {
       setError(message);
       return;
     }
     setError(null);
     const addUserToServer = await addData(usersUrl, newUser);
-    //hantera fel i datahämtning
+    //handle errors in data fetching
     if (!addUserToServer) {
       setError("Ooops!! Could not add data...");
       return;
@@ -90,9 +90,6 @@ function FormFill() {
       })
     );
   };
-  useEffect(() => {
-    //console.log("users", users);
-  }, [users]);
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6 col-xl-5">

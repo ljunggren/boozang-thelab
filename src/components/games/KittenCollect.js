@@ -130,10 +130,6 @@ const KittenCollect = () => {
     // eslint-disable-next-line
   }, [isRunning, count]);
 
-  useEffect(() => {
-    // console.log("kittens: ", kittens);
-  }, [kittens]);
-
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-8 col-xl-5">

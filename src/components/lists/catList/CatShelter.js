@@ -15,7 +15,7 @@ const CatShelter = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const catsUrl = "//localhost:9000/cats";
+  const catsUrl = "/cats";
 
   useEffect(() => {
     const getCats = async () => {
@@ -41,7 +41,6 @@ const CatShelter = () => {
 
     //PUT request...send update
     const catFromServer = await updateData(singleCatUrl, updatedCat);
-    console.log("catFromServer", catFromServer);
 
     //set Gui state
     setCats(

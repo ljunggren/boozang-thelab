@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./visualBugs.scss";
 import { VisualBugsVideos } from "../text/videos/VideoSections";
 import { VisualBugsIntro } from "../text/Intros";
@@ -15,7 +15,7 @@ const VisualBugs = () => {
     };
     return <img src={imgPath.image} key={i} alt={imgPath.name} />;
   });
-  //före
+  //before
   const animalImg = images[index];
   const animalLabel = animals[index];
 
@@ -27,9 +27,6 @@ const VisualBugs = () => {
       setIndex(0);
     }
   };
-  useEffect(() => {
-    // console.log("index: ", index);
-  }, [index]);
 
   return (
     <div className="row justify-content-between">

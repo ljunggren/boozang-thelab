@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./scramble.scss";
 import { MultiScrambleIntro } from "../text/Intros";
 import { MultiScrambleTestInfo } from "../text/WhyLearn";
@@ -7,9 +7,6 @@ import { MultiScrambleVideos } from "../text/videos/VideoSections";
 const MultiScramble = () => {
   const [contentAdd, setContentAdd] = useState("Add");
   const [contentDelete, setContentDelete] = useState("Delete");
-  useEffect(() => {
-    console.log("contentAdd", contentAdd);
-  }, [contentAdd]);
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6 col-xl-5">

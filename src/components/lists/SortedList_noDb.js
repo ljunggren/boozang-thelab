@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo_noDb";
 import "./lists.scss";
@@ -30,9 +30,6 @@ const SortedList = () => {
       })
     );
   };
-  useEffect(() => {
-    //console.log("todos:", todos);
-  }, [todos]);
 
   return (
     <div className="row justify-content-between">

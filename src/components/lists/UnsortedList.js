@@ -14,7 +14,7 @@ const UnsortedList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const todosUrl = "//localhost:9000/todos";
+  const todosUrl = "/todos";
 
   useEffect(() => {
     const getTodos = async () => {
@@ -52,10 +52,6 @@ const UnsortedList = () => {
     todosNew.splice(randomIndex, 0, newTodo);
     setTodos(todosNew);
   };
-
-  useEffect(() => {
-    // console.log("todos:", todos);
-  }, [todos]);
 
   return (
     <div className="row justify-content-between">

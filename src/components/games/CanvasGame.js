@@ -162,7 +162,6 @@ const CanvasGame = () => {
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
-    // console.log("ball: ", ball);
     //finding the <canvas> element
     const canvasObj = canvasRef.current;
     //creating a drawing object for our canvas
