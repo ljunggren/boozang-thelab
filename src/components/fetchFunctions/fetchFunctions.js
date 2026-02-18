@@ -1,3 +1,9 @@
+//helper to construct URL without credentials
+const getApiUrl = (path) => {
+  const loc = window.location;
+  return `${loc.protocol}//${loc.host}${path}`;
+};
+
 //connector?
 export const getData = async (url, filters) => {
   try {
@@ -6,24 +12,24 @@ export const getData = async (url, filters) => {
     if (filters) {
       filterParams = "?" + JSON.stringify(filters);
     }
-    const result = await fetch(url + filterParams);
-    //result men status ej ok
+    const fullUrl = getApiUrl(url + filterParams);
+    const result = await fetch(fullUrl);
+    //result with non-ok status
     if (!result.ok) {
-      // console.log("result:", result);
       throw Error("Fetch data from server error: " + result.statusText);
     }
     //result.json(); returns promise
     const data = await result.json();
     return data;
-    //alla fel
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
 export const addData = async (url, item) => {
   try {
-    const result = await fetch(url, {
+    const fullUrl = getApiUrl(url);
+    const result = await fetch(fullUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       //what I post as json-format
@@ -35,13 +41,14 @@ export const addData = async (url, item) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
 export const updateData = async (url, updItem) => {
   try {
-    const result = await fetch(url, {
+    const fullUrl = getApiUrl(url);
+    const result = await fetch(fullUrl, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       //what I post as json-format
@@ -53,14 +60,15 @@ export const updateData = async (url, updItem) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };
 
 export const deleteData = async (url, id) => {
   url = url.endsWith("/") ? url : url + "/";
   try {
-    const result = await fetch(url + id, {
+    const fullUrl = getApiUrl(url + id);
+    const result = await fetch(fullUrl, {
       method: "DELETE",
     });
     if (!result.ok) {
@@ -69,6 +77,6 @@ export const deleteData = async (url, id) => {
     const data = await result.json();
     return data;
   } catch (err) {
-    console.log("error:", err);
+    void err;
   }
 };

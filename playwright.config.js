@@ -1,6 +1,10 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
+/**
+ * Playwright configuration for boozang-thelab
+ * @see https://playwright.dev/docs/test-configuration
+ */
 module.exports = defineConfig({
   testDir: './e2e',
   fullyParallel: true,

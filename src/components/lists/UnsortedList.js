@@ -14,7 +14,7 @@ const UnsortedList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const todosUrl = "//localhost:9000/todos";
+  const todosUrl = "/todos";
 
   useEffect(() => {
     const getTodos = async () => {
@@ -53,10 +53,6 @@ const UnsortedList = () => {
     setTodos(todosNew);
   };
 
-  useEffect(() => {
-    // console.log("todos:", todos);
-  }, [todos]);
-
   return (
     <div className="row justify-content-between">
       <div className="col-12 col-md-6 col-xl-5">
@@ -65,7 +61,7 @@ const UnsortedList = () => {
           {error && <p className="error">{error}</p>}
           {isLoading && <p className="loading">Loading...</p>}
           {todos && <TodoList todos={todos} handleDelete={handleDelete} />}
-          <AddTodo addTodo={addTodo} />
+          <AddTodo addTodo={addTodo} todos={todos} />
         </section>
       </div>
       <div className="col-12 col-md-5">

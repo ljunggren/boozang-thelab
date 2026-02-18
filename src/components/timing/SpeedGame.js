@@ -24,7 +24,7 @@ const SpeedGame = () => {
         resultMessage: "",
         subMessage: "",
       });
-      let startCount = Math.floor(Math.random() * 10000) + 1000; //random nr mellan 1000-10000ms
+      let startCount = Math.floor(Math.random() * 10000) + 1000; //random number between 1000-10000ms
       //start counting down at randomnr
       setCount(startCount);
     }
@@ -53,9 +53,6 @@ const SpeedGame = () => {
     return () => clearInterval(myInterval);
   }, [isRunning, count]);
 
-  useEffect(() => {
-    // console.log("isRunning: ", isRunning);
-  }, [isRunning]);
 
   return (
     <div className="row justify-content-between" data-testid="SpeedGame">
@@ -68,7 +65,7 @@ const SpeedGame = () => {
             </button>
 
             {count < 0 && (
-              <button onClick={handleStop} className="form_btn delete">
+              <button onClick={handleStop} className="form_btn delete" data-testid="endBtn">
                 End Game
               </button>
             )}

@@ -1,6 +1,6 @@
 import ScrambleItems from "../ScrambleItems";
 import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 
 test("Control ScrambleItems heading", () => {
   render(<ScrambleItems />);

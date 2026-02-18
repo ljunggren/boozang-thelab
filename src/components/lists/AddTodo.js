@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addData } from "../fetchFunctions/fetchFunctions";
 
 const AddTodo = ({ addTodo, todos }) => {
@@ -6,7 +6,7 @@ const AddTodo = ({ addTodo, todos }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const totalTodos = todos;
-  const todosUrl = "//localhost:9000/todos/";
+  const todosUrl = "/todos/";
 
   //add Todo in db
   const handleSubmit = async (e) => {
@@ -23,10 +23,6 @@ const AddTodo = ({ addTodo, todos }) => {
     }
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    //console.log("totalTodos:", totalTodos);
-  }, [totalTodos]);
 
   return (
     <div>

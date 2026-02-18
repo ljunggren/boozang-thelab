@@ -1,12 +1,12 @@
 @import "../../variables.scss";
 .visual_bugs_section {
   /* https://css-tricks.com/aspect-ratio-boxes/ */
-  .apect_ratio_box {
+  .aspect_ratio_box {
     height: 0;
     overflow: hidden;
     padding-top: calc(380px / 640px * 100%);
     position: relative;
-    .apect_ratio_inside {
+    .aspect_ratio_inside {
       position: absolute;
       top: 0;
       left: 0;

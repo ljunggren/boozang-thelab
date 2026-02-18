@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addData } from "../../fetchFunctions/fetchFunctions";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -12,12 +12,11 @@ const AddCat = () => {
     inOrOutside: "",
   });
 
-  const catsUrl = "//localhost:9000/cats/";
+  const catsUrl = "/cats/";
   const history = useHistory();
 
   const handleChange = (e) => {
-    // console.log("hej", e.target.value);
-    //name-attributet
+    //name attribute
     const { name, value } = e.target;
     setNewValues({
       ...newValues, //all the values +
@@ -43,9 +42,6 @@ const AddCat = () => {
   const handleCancel = () => {
     history.push("/catshelter");
   };
-  useEffect(() => {
-    //  console.log("newValues", newValues);
-  }, [newValues]);
 
   return (
     <div className="row justify-content-between">

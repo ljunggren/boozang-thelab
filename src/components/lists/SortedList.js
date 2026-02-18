@@ -15,11 +15,10 @@ const SortedList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const todosUrl = "//localhost:9000/todos/";
+  const todosUrl = "/todos/";
   useEffect(() => {
     const getTodos = async () => {
       const todosFromServer = await getData(todosUrl);
-      // console.log("todosUrl:", todosUrl);
       //setting Gui state
       setTodos(todosFromServer);
       setIsLoading(false);
@@ -46,9 +45,6 @@ const SortedList = () => {
   const addTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
   };
-  useEffect(() => {
-    //console.log("todos_sortedList:", todos);
-  }, [todos]);
 
   return (
     <div className="row justify-content-between">

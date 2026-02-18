@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./timing.scss";
 import { WaitGameVideos } from "../text/videos/VideoSections";
 import { WaitGameIntro } from "../text/Intros";
@@ -18,7 +18,7 @@ const WaitGame = () => {
   const handleStart = () => {
     if (!isRunning) {
       setIsRunning(true);
-      //tidpunkt för start
+      //timestamp for start
       setOffsetTime(Date.now());
       setMessageData({
         ...messageData,
@@ -28,16 +28,16 @@ const WaitGame = () => {
       });
     }
   };
-  //tidsskillnad mellan stop o start
+  //time difference between stop and start
   const delta = () => {
-    //tidpunkt för stop
+    //timestamp for stop
     let now = Date.now();
     let elapsedTime = now - offsetTime;
     setOffsetTime(now); //new start point?
     return elapsedTime;
   };
 
-  //kolla så är mer än 5s o hur mycket
+  //check if it's more than 5s and by how much
   const compare = () => {
     const limit = 5000;
     const difference = delta();
@@ -62,9 +62,6 @@ const WaitGame = () => {
     setIsRunning(false);
     compare();
   };
-  useEffect(() => {
-    // console.log("isRunning: ", isRunning);
-  }, [isRunning]);
 
   return (
     <div className="row justify-content-between">
@@ -77,7 +74,7 @@ const WaitGame = () => {
             </button>
 
             {isRunning && (
-              <button className="form_btn delete" onClick={handleStop}>
+              <button className="form_btn delete" onClick={handleStop} data-testid="endBtn">
                 End Game
               </button>
             )}

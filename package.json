@@ -2,25 +2,29 @@
   "name": "boozang-the-lab",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:9000",
   "dependencies": {
-    "@testing-library/jest-dom": "latest",
-    "@testing-library/react": "latest",
-    "@testing-library/user-event": "latest",
-    "gojs-react": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "gojs-react": "^1.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "5.2.0",
-    "react-scripts": "latest",
-    "react-test-renderer": "latest",
-    "sass": "latest",
-    "web-vitals": "latest"
+    "react-scripts": "^5.0.1",
+    "react-test-renderer": "^18.3.1",
+    "sass": "^1.77.6",
+    "web-vitals": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --colors",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch data/db.json --port 9000"
+    "server": "json-server --watch data/db.json --port 9000",
+    "test:e2e": "npx playwright test"
   },
   "eslintConfig": {
     "extends": [
@@ -41,12 +45,14 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
-    "multiple-cucumber-html-reporter": "latest",
-    "react-error-overlay": "latest"
+    "@playwright/test": "^1.58.0",
+    "json-server": "^0.17.4",
+    "multiple-cucumber-html-reporter": "^3.6.2",
+    "react-error-overlay": "^6.0.11",
+    "wait-on": "^9.0.3"
   },
   "resolutions": {
     "//": "See https://github.com/facebook/create-react-app/issues/11773",
-    "react-error-overlay": "latest"
+    "react-error-overlay": "6.0.11"
   }
 }
