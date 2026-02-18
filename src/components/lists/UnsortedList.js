@@ -61,7 +61,7 @@ const UnsortedList = () => {
           {error && <p className="error">{error}</p>}
           {isLoading && <p className="loading">Loading...</p>}
           {todos && <TodoList todos={todos} handleDelete={handleDelete} />}
-          <AddTodo addTodo={addTodo} />
+          <AddTodo addTodo={addTodo} todos={todos} />
         </section>
       </div>
       <div className="col-12 col-md-5">
