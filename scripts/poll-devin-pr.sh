@@ -157,9 +157,9 @@ while true; do
           if run_local_tests "$PR_NUM"; then
             echo "  🚀 PR #${PR_NUM}: merging..."
             ensure_gh_auth
-            if gh pr merge "$PR_NUM" --repo "$REPO" --merge 2>&1; then
+            if gh pr merge "$PR_NUM" --repo "$REPO" --merge --delete-branch 2>&1; then
               MERGED_PRS="$MERGED_PRS $PR_NUM"
-              echo "  🎉 PR #${PR_NUM} merged!"
+              echo "  🎉 PR #${PR_NUM} merged! (branch deleted)"
               osascript -e "display notification \"PR #${PR_NUM} auto-merged\" with title \"Devin PR Merged\" sound name \"Glass\"" 2>/dev/null || true
             else
               echo "  ❌ PR #${PR_NUM}: merge failed"
