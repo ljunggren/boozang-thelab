@@ -65,7 +65,7 @@ const SpeedGame = () => {
             </button>
 
             {count < 0 && (
-              <button onClick={handleStop} className="form_btn delete">
+              <button onClick={handleStop} className="form_btn delete" data-testid="endBtn">
                 End Game
               </button>
             )}

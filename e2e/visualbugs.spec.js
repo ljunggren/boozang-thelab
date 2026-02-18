@@ -6,7 +6,7 @@ test.describe('VisualBugs', () => {
   });
 
   test('should display the carousel with the first image', async ({ page }) => {
-    const img = page.locator('.apect_ratio_inside img');
+    const img = page.locator('.aspect_ratio_inside img');
     await expect(img).toBeVisible();
     await expect(img).toHaveAttribute('alt', 'zebra');
 
@@ -18,7 +18,7 @@ test.describe('VisualBugs', () => {
 
     await page.click('button.form_btn.add');
 
-    const img = page.locator('.apect_ratio_inside img');
+    const img = page.locator('.aspect_ratio_inside img');
     await expect(img).toHaveAttribute('alt', 'cheetah');
     await expect(page.locator('.label_wrapper p')).toHaveText('cheetah');
   });
