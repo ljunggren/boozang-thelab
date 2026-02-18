@@ -125,10 +125,9 @@ const Table = () => {
                       <td>{animal.species}</td>
                       <td>{animal.hairdo}</td>
                       <td>
-                        <button className="icon_btn" aria-label="toggle liking animal">
+                        <button className="icon_btn" aria-label="Toggle like" onClick={() => toggleLike(animal)}>
                           <i
                             className={`fa fa-heart liked_icon ${animal.isLiked ? "liked" : ""}`}
-                            onClick={() => toggleLike(animal)}
                             title="like"
                             aria-hidden="true"
                           />

@@ -8,7 +8,7 @@ const CatListItem = ({ togglefoundHome, item }) => {
         <span>{item.name} </span>
       </Link>
 
-      <button onClick={() => togglefoundHome(item.id)} className={`new_home ${item.foundHome ? "found" : ""}`}>
+      <button onClick={() => togglefoundHome(item.id)} className={`new_home ${item.foundHome ? "found" : ""}`} aria-label="Toggle found home status">
         <i className="fas fa-home" title="Found home" aria-hidden="true"></i>
       </button>
     </li>
