@@ -39,7 +39,7 @@ test.describe('FormFill', () => {
     await page.click('button.form_btn.add');
 
     await expect(page.locator('.error')).toBeVisible();
-    await expect(page.locator('.error')).toContainText('Password needs to be al least 6 characters');
+    await expect(page.locator('.error')).toContainText('Password needs to be at least 6 characters');
   });
 
   test('should show and hide users from db', async ({ page }) => {
